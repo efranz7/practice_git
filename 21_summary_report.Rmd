@@ -4,14 +4,16 @@ output: html_document
 ---
 
 ```{r}
- # Intent: create final all-star table combining stock and dividend strength.
-      # This should return top 3 overall based on lowest combined rank.
-  all_star <-overall_table %>%
-    mutate(rank_sum= stock_rank + div_rank) %>%
-arrange(rank_sum, desc(overall_score)) %>%
- slice(1:3)
+# Intent: create final all-star table combining stock and dividend strength.
+# This should return top 3 overall based on lowest combined rank.
+all_star <- overall_table %>%
+  mutate(rank_sum = stock_rank + div_rank) %>%
+  arrange(rank_sum, desc(overall_score)) %>%
+  slice(1:3)
 
-      # Intent: render as a polished table for the final report.
-    knitr::kable(all_star,
-caption = "Top 3 DJIA All-Stars: Price + Dividend Performance",
- digits = 3)
+# Intent: render as a polished table for the final report.
+knitr::kable(all_star,
+  caption = "Top 3 DJIA All-Stars: Price + Dividend Performance",
+  digits = 3
+)
+```
